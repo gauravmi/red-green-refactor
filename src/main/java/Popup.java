@@ -1,24 +1,15 @@
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBRadioButton;
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
-import junit.awtui.TestRunner;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.plaf.ButtonUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 import static com.intellij.ui.JBColor.*;
-import static javax.swing.SwingConstants.CENTER;
 
 public class Popup extends DialogWrapper {
 
@@ -33,18 +24,16 @@ public class Popup extends DialogWrapper {
         jPanel.setLayout(new GridLayout(3,1));
 
         JBRadioButton red = new JBRadioButton();
-        red.setBackground(BLACK);
-        red.addFocusListener(focusListener());
-
-        paintBasicButtonUI(red, RED);
-
         JBRadioButton green = new JBRadioButton();
-        green.addFocusListener(focusListener());
-        paintBasicButtonUI(green, GREEN);
-
         JBRadioButton refactor = new JBRadioButton();
-        refactor.addFocusListener(focusListener());
+        paintBasicButtonUI(red, RED);
+        paintBasicButtonUI(green, GREEN);
         paintBasicButtonUI(refactor, BLUE);
+        red.setBackground(BLACK);
+
+        red.addActionListener(getActionListener(green, refactor));
+        green.addActionListener(getActionListener(red, refactor));
+        refactor.addActionListener(getActionListener(red, green));
 
         ButtonGroup group = new ButtonGroup();
         group.add(red);
@@ -59,19 +48,12 @@ public class Popup extends DialogWrapper {
     }
 
     @NotNull
-    private FocusListener focusListener() {
-        return new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                Component component = e.getComponent();
-                component.setBackground(BLACK);
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                Component component = e.getComponent();
-                component.setBackground(WHITE);
-            }
+    private ActionListener getActionListener(JBRadioButton button1, JBRadioButton button2) {
+        return e -> {
+            JBRadioButton component = (JBRadioButton) e.getSource();
+            component.setBackground(BLACK);
+            button1.setBackground(WHITE);
+            button2.setBackground(WHITE);
         };
     }
 
