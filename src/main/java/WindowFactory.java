@@ -3,7 +3,6 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
-import com.intellij.ui.content.ContentFactory.SERVICE;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -13,6 +12,7 @@ import static com.intellij.ui.content.ContentFactory.SERVICE.getInstance;
 public class WindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
+
         JComponent jComponent = new Popup().createCenterPanel();
 
         assert jComponent != null;
