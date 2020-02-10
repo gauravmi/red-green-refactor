@@ -1,6 +1,8 @@
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
+import com.intellij.refactoring.listeners.RefactoringEventListener;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +19,12 @@ public class WindowFactory implements ToolWindowFactory {
 
         assert jComponent != null;
         jComponent.setAutoscrolls(true);
+        project.getMessageBus().connect(new Disposable() {
+            @Override
+            public void dispose() {
+
+            }
+        }).subscribe(RefactoringEventListener.REFACTORING_EVENT_TOPIC);
         ContentFactory instance = getInstance();
         Content content = instance
                 .createContent(jComponent, "", false);
