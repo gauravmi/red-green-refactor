@@ -1,10 +1,13 @@
 <idea-plugin>
-    <id>org.example.tdd</id>
-    <name>TDD - Red Green Refactor</name>
-    <vendor email="gmi3024@gmail.com" url="http://www.yourcompany.com">Thoughtworks</vendor>
+    <id>org.learn.tdd.red-green-refactor</id>
+    <name>Red Green Refactor - Learn TDD Cycle</name>
+    <vendor email="gmi3024@gmail.com" url="NA">Learning</vendor>
 
     <description><![CDATA[
-    Learn TDD.<br>
+    Visualisation for TDD Cycle Red-Green-Refactor.<br>
+    * Red - Start from writing a failing test. <br>
+    * Green - When green circle is highlighted. Make test pass<br>
+    * Refactor (blue) - When blue circle is highlighted - focus Refactor your code <br>
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
