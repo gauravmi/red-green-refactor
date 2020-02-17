@@ -17,7 +17,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <toolWindow id="TDD" anchor="right" factoryClass="WindowFactory"/>
-        <testStatusListener implementation="FailureEventListener"/>
+        <testStatusListener implementation="TestRunEventListener"/>
     </extensions>
 
     <actions>

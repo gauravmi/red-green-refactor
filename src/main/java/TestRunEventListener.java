@@ -14,7 +14,7 @@ import java.util.List;
 import static com.intellij.ui.JBColor.BLACK;
 import static com.intellij.ui.JBColor.WHITE;
 
-public class FailureEventListener extends TestStatusListener {
+public class TestRunEventListener extends TestStatusListener {
 
     @Override
     public void testSuiteFinished(@Nullable AbstractTestProxy root) {
