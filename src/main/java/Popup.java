@@ -34,7 +34,7 @@ public class Popup extends DialogWrapper {
     @NotNull
     private JPanel constructJPanel(JBRadioButton red, JBRadioButton green, JBRadioButton refactor) {
         JPanel jPanel = new JPanel();
-        jPanel.setLayout(new GridLayout(3,1));
+        jPanel.setLayout(new GridLayout(3, 1));
         jPanel.add(red);
         jPanel.add(green);
         jPanel.add(refactor);
