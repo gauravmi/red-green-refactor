@@ -18,6 +18,8 @@
         <!-- Add your extensions here -->
         <toolWindow id="TDD" anchor="right" factoryClass="WindowFactory"/>
         <testStatusListener implementation="TestRunEventListener"/>
+        <notification.parentGroup id="demo.notifications" title="Demo notifications"/>
+        <notificationGroup id="demo.notifications.group" displayType="STICKY_BALLOON" key="notification.group.name"/>
     </extensions>
 
     <actions>
