@@ -4,9 +4,7 @@ plugins {
 }
 
 group 'org.learn.tdd'
-version '1.0.5'
-
-sourceCompatibility = 1.8
+version '2.0.0'
 
 repositories {
     mavenCentral()
@@ -18,17 +16,18 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2021.1.3'
+    version '2021.2'
 }
 
 publishPlugin {
-    token '***REMOVED***'
+    token = System.getenv('TDD_TOKEN')
     channels 'stable'
 }
 
 patchPluginXml {
-    sinceBuild = '192'
+    sinceBuild = '203'
     changeNotes = """
       Learn TDD.<br>
       <em>Red Green Refactor Cycle</em>"""
 }
+
