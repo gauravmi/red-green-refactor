@@ -3,7 +3,7 @@ Intellij Idea plugin for visualisation of TDD process
 
 ## Prerequisites
 - IntelliJ IDE
-- JDK8
+- JDK11
 
 ## How to run the plugin?
 There are two methods of running the plugin:
@@ -29,6 +29,16 @@ There are two methods of running the plugin:
         - Click on the Settings icon.
         - Select the `Install Plugin from Disk...` option.
         - Now select the zip file for the plugin and restart the IDE.
+
+## How to publish the plugin?
+
+We need to set an Environment Variable(TOKEN) for publishing the plugin to JetBrains Marketplace. 
+
+follow the below steps to set Environment Variable:
+
+1. Go to `Run tab`&rarr; `Edit Configuration`&rarr; `Edit configuration templates..` 
+2. In Environment Variables textbox enter -> `TDD_TOKEN={token}`
+3. Run the `publishPlugin` task
 
 ## Important Links
 - [Plugin Compatibility](https://jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html)
